@@ -27,16 +27,11 @@ setInterval(() => {
 const menuAllCategories = document.getElementById('menuAllCategories');
 const subMenuAllCategories = document.getElementById('subMenuAllCategories');
 let menuShown = false;
+let lastSubMenuShown = undefined;
 
-menuAllCategories.addEventListener('click', () => {
-    menuShown = !menuShown;
-    if (menuShown)
-        subMenuAllCategories.style.display = 'block';
-    else {
-        subMenuAllCategories.style.display = 'none';
-        return;
-    }
-
+function redrawFullMenu() {
+    // Reset this value on redraw of menu structure
+    lastSubMenuShown = undefined;
     subMenuAllCategories.innerHTML = '';
 
     menuContent.map((item) => {
@@ -67,6 +62,9 @@ menuAllCategories.addEventListener('click', () => {
 
         // Gestion du click sur un sous menu
         divMenuItem.addEventListener('click', () => {
+            if (lastSubMenuShown != undefined)
+                lastSubMenuShown.innerHTML = '';
+
             const subMenu = document.createElement('div');
             subMenu.classList.add('subMenu');
 
@@ -76,13 +74,49 @@ menuAllCategories.addEventListener('click', () => {
 
                 const anchor = document.createElement('a');
                 anchor.innerText = subitem.text;
-                anchor.href= subitem.link;
+                anchor.href = subitem.link;
 
                 divMenuItem.append(anchor);
                 subMenu.append(divMenuItem);
             });
 
             divMenuItemContainer.append(subMenu);
+
+            lastSubMenuShown = subMenu;
         });
     });
+}
+
+menuAllCategories.addEventListener('click', () => {
+    menuShown = !menuShown;
+    if (menuShown)
+        subMenuAllCategories.style.display = 'block';
+    else {
+        subMenuAllCategories.style.display = 'none';
+        return;
+    }
+
+    redrawFullMenu();
+});
+
+/*
+ * Gestion de Shop Now
+ * Problem : SHOP NOW is only on Heros
+ */
+
+const buttons = [
+    'promosButton-1',
+    'promosButton-2',
+    'promosButton-3'];
+
+let nbArticles = 0;
+
+const cartNumber = document.getElementById('cartNumber');
+
+buttons.map(item=>{
+    const button = document.getElementById(item);
+    button.addEventListener('click', ()=>{
+        nbArticles++;
+        cartNumber.innerText = nbArticles.toString();
+    })
 });
