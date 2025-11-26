@@ -1,0 +1,333 @@
+@import url('./reset.css');
+
+@font-face {
+    font-family: 'oswald';
+    src: url('../font/Oswald-VariableFont_wght.ttf');
+}
+
+/* Global class,id and objects definition */
+
+:root {
+    --color-primary: #FFB700;
+    --color-orange-light: #FFD480;
+    --color-secondary: #2A2C2D;
+    --color-light: #959595;
+    --color-success: #63A464;
+}
+
+* {
+    font-family: 'oswald', sans-serif;
+    font-size: 1rem;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+/* Menu section CSS */
+
+#menuHeaderSection {
+    background-color: black;
+    width: 100vw;
+}
+
+#menuSection {
+    background-color: var(--color-primary);
+}
+
+#menuHeaderContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#menuIcons {
+    display: flex;
+    color: white;
+
+    div {
+        padding: 0.5rem;
+    }
+}
+
+#menuContainer {
+    padding: 0.5rem 0;
+
+    ul {
+        display: flex;
+        align-items: center;
+
+        li {
+            margin: 0 0.3rem;
+        }
+    }
+}
+
+#menuAllCategories {
+    display: flex;
+    padding: 0.3rem;
+    background-color: white;
+    width: fit-content;
+
+    div:first-child {
+        margin-right: 1rem;
+    }
+}
+
+/* Slider section CSS */
+
+#heroSection {
+    width: 100vw;
+}
+
+#heroContainer {
+    position: relative;
+}
+
+.heroText {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+}
+
+.promos {
+    color: var(--color-primary);
+    font-size: 1rem;
+}
+
+.promosTitle {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#slide-1 {
+    display: block;
+}
+
+#slide-2,
+#slide-3 {
+    display: none;
+}
+
+#promosButton-1,
+#promosButton-2,
+#promosButton-3 {
+    border: none;
+    color: white;
+    background-color: var(--color-primary);
+    padding: 0.8rem 2rem;
+    margin-top: 2rem;
+}
+
+/* Header of each section of the shop */
+
+.rubriqueHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rubriqueName {
+    font-weight: 600;
+}
+
+.rubriqueLinks {
+    ul {
+        display: flex;
+
+        li {
+            padding: 0 0.3rem;
+        }
+
+        li:first-child {
+            color: var(--color-primary);
+        }
+    }
+}
+
+/*
+ * Cards CSS sections
+ */
+
+.cardContainer {
+    display: flex;
+}
+
+.cardImage {
+    position: relative;
+}
+
+/* soldout or sale overlay CSS*/
+.cardOverlay {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: white;
+    padding: 0.5rem;
+}
+
+.soldout {
+    background-color: var(--color-primary);
+}
+
+.sale {
+    background-color: var(--color-success);
+}
+
+/* content */
+.cardTitle {
+    font-weight: 600;
+}
+
+.cardPrice {
+    font-size: 0.8rem;
+    color: var(--color-primary);
+
+    span:first-child {
+        color: black;
+        font-size: 0.7rem;
+        text-decoration: line-through;
+    }
+
+    span:last-child {
+        color: var(--color-success)
+    }
+}
+
+.cardNotation {
+    color: var(--color-primary)
+}
+
+/* Partners CSS section */
+
+#partners {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*
+ * Call to action CSS section
+ */
+
+#callToActionSection {
+    padding: 4rem 0;
+    background-color: var(--color-primary);
+
+    .container {
+        text-align: center;
+        display: flex;
+    }
+}
+
+#callToActionContainer {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    /* Mise en forme du texte */
+    div:first-child {
+        display: flex;
+        align-items: center;
+
+        i {
+            font-size: 4rem;
+            color: white;
+            margin-right: 2rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: white;
+            margin-right: 2rem;
+        }
+    }
+
+    /* mise en forme du formulaire */
+    form {
+        background-color: white;
+        padding: 0.2rem;
+        display: flex;
+
+        input[type="email"] {
+            border: none;
+            padding: 0.5rem 1rem;
+        }
+
+        input[type="submit"] {
+            border: none;
+            color: white;
+            background-color: black;
+            height: 100%;
+            padding: 0 1rem;
+        }
+    }
+}
+
+/*
+ * Footer section CSS
+ */
+
+#footerContainer {
+    background-color: var(--color-secondary);
+    padding: 0.5rem 0;
+}
+
+#footerInsideContainer {
+    display: flex;
+    color: white;
+
+    .leftside,
+    .rightside {
+        width: 50%;
+    }
+
+    .leftside {
+        div {
+            width: 12rem;
+        }
+
+        p {
+            font-size: 0.8rem;
+        }
+
+        ul {
+            li {
+                font-size: 0.8rem;
+                margin: 0.8rem 0;
+
+                i {
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+
+    .rightside {
+        i {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+#miniaturesInstaContainer {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    >div {
+        width: 24.2%;
+        margin-bottom: 0.3rem;
+    }
+}
+
+.copyright {
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+}
