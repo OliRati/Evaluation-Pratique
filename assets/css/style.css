@@ -21,7 +21,7 @@
 }
 
 .container {
-    max-width: 1024px;
+    width: 95vw;
     margin: 0 auto;
 }
 
@@ -33,6 +33,7 @@
 }
 
 #menuSection {
+    width: 100vw;
     background-color: var(--color-primary);
 }
 
@@ -41,10 +42,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 0;
 }
 
 #menuIcons {
     display: flex;
+    align-items: center;
     color: white;
 
     div {
@@ -52,22 +55,57 @@
     }
 }
 
+#cartIcon {
+    position: relative;
+}
+
+#cartNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    top: .5rem;
+    right: .5rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.8rem;
+}
+
 #menuContainer {
     padding: 0.5rem 0;
+    width: fit-content;
+    margin: 0 auto;
 
     ul {
         display: flex;
         align-items: center;
 
         li {
-            margin: 0 0.3rem;
+            display: none;
+            padding: 0.5rem;
+        }
+
+        li:first-child {
+            display: block;
+        }
+
+        li:last-child {
+            display: block;
+            margin-left: 2rem;
+
+            i {
+                color: white;
+                margin-right: 1rem;
+            }
         }
     }
 }
 
 #menuAllCategories {
     display: flex;
-    padding: 0.3rem;
+    padding: 0.3rem 1rem;
     background-color: white;
     width: fit-content;
 
@@ -80,6 +118,10 @@
 
 #heroSection {
     width: 100vw;
+
+    .container {
+        width: 100%;
+    }
 }
 
 #heroContainer {
@@ -89,7 +131,7 @@
 .heroText {
     position: absolute;
     top: 2rem;
-    left: 0;
+    left: 2rem;
 }
 
 .promos {
@@ -127,6 +169,7 @@
 .rubriqueHeader {
     display: flex;
     justify-content: space-between;
+    margin: 2rem 0;
 }
 
 .rubriqueName {
@@ -153,6 +196,12 @@
 
 .cardContainer {
     display: flex;
+    flex-direction: column;
+
+    .card {
+        width: 95%;
+        margin: 0 auto;
+    }
 }
 
 .cardImage {
@@ -204,8 +253,13 @@
 
 #partners {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+
+    >div {
+        width: 33%;
+    }
 }
 
 /*
@@ -213,6 +267,7 @@
  */
 
 #callToActionSection {
+    width: 100vw;
     padding: 4rem 0;
     background-color: var(--color-primary);
 
@@ -233,15 +288,16 @@
         align-items: center;
 
         i {
-            font-size: 4rem;
+            font-size: 3rem;
             color: white;
-            margin-right: 2rem;
+            margin-right: 1rem;
         }
 
         h2 {
-            font-size: 1.8rem;
+            text-align: left;
+            font-size: 1.4rem;
             color: white;
-            margin-right: 2rem;
+            margin-right: 1rem;
         }
     }
 
@@ -271,17 +327,19 @@
  */
 
 #footerContainer {
+    width: 100vw;
     background-color: var(--color-secondary);
     padding: 0.5rem 0;
 }
 
 #footerInsideContainer {
     display: flex;
+    flex-direction: column;
     color: white;
 
     .leftside,
     .rightside {
-        width: 50%;
+        width: 100%;
     }
 
     .leftside {
@@ -306,6 +364,8 @@
     }
 
     .rightside {
+        padding-top: 3rem;
+
         i {
             color: var(--color-primary);
             font-size: 1.5rem;
@@ -321,8 +381,12 @@
     justify-content: space-between;
 
     >div {
-        width: 24.2%;
+        width: 49%;
         margin-bottom: 0.3rem;
+
+        img {
+            width: 100%;
+        }
     }
 }
 
@@ -330,4 +394,97 @@
     color: white;
     font-size: 0.8rem;
     text-align: center;
+}
+
+/*
+ * Media querys tricks
+ */
+
+@media screen and (min-width: 576px) {
+
+    .container {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    #hamburgerMenu {
+        display: none;
+    }
+
+    #heroSection {
+        .container {
+            width: unset;
+        }
+    }
+
+    .heroText {
+        left: 0;
+    }
+
+    #menuContainer {
+        ul {
+            li {
+                display: block;
+            }
+
+            li:first-child {
+                display: block;
+            }
+
+            li:last-child {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    .cardContainer {
+        flex-direction: row;
+
+        .card {
+            width: unset;
+            margin: unset;
+        }
+    }
+
+    #partners {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #footerInsideContainer {
+        flex-direction: row;
+
+        .leftside,
+        .rightside {
+            width: 100%;
+        }
+
+        .rightside {
+            padding-top: unset;
+        }
+    }
+
+    #miniaturesInstaContainer {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        >div {
+            width: 24.2%;
+            margin-bottom: 0.3rem;
+        }
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #menuContainer {
+        ul {
+            li:last-child {
+                margin-left: 6rem;
+            }
+        }
+    }
 }
