@@ -87,6 +87,10 @@
             padding: 0.5rem;
         }
 
+        li:hover {
+            cursor: pointer;
+        }
+
         li:first-child {
             display: block;
         }
@@ -103,15 +107,70 @@
     }
 }
 
+#menuAllCategoriesContainer {
+    position: relative;
+}
+
 #menuAllCategories {
     display: flex;
     padding: 0.3rem 1rem;
     background-color: white;
     width: fit-content;
+    border-radius: 0.3rem;
 
     div:first-child {
         margin-right: 1rem;
     }
+}
+
+#subMenuAllCategories {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.3rem;
+    width: 14rem;
+}
+
+#menuAllCategories:hover {
+    cursor: pointer;
+    background-color: #EEEEEE;
+}
+
+.menuItem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0.3rem 0;
+    color: black;
+    width: 100%;
+
+    div:first-child {
+        margin-right: 1rem;
+    }
+
+    div:last-child {
+        font-size: 1.2rem;
+    }
+}
+
+.subMenu {
+    position: absolute;
+    left: calc(100% + 0.5rem);
+    background-color: white;
+    width: 12rem;
+
+    a {
+        font-size: 1.2rem;
+    }
+}
+
+.menuItem:hover {
+    cursor: pointer;
+    color: var(--color-primary);
 }
 
 /* Slider section CSS */
@@ -122,11 +181,16 @@
     .container {
         width: 100%;
     }
+
+    button:hover {
+        cursor: pointer;
+    }
 }
 
 #heroContainer {
     position: relative;
 }
+
 
 .heroText {
     position: absolute;
@@ -152,6 +216,17 @@
 #slide-2,
 #slide-3 {
     display: none;
+}
+
+.topImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.bottomImage {
+    position z-index: 0;
 }
 
 #promosButton-1,
@@ -403,7 +478,7 @@
 @media screen and (min-width: 576px) {
 
     .container {
-        max-width: 1024px;
+        max-width: 1200px;
         margin: 0 auto;
     }
 

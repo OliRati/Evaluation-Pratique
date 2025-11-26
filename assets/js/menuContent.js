@@ -217,3 +217,5 @@ const menuContent = [
         ]
     }
 ];
+
+export default menuContent;
